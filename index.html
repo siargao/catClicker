@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cat Clicker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+   
+</head>
+
+<body>
+    <div id='container'>
+        <p id='score'> 1 </p>
+        <img id='kiki' src="kiki.png" alt="sneeky" height="600" width="800">
+    </div>
+    <script>
+            var score = document.getElementById("score").innerText;
+            score = parseInt(score);
+    
+            var increaseScore = document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById("kiki").addEventListener('click', function () {
+                    document.getElementById("score").innerText = score + 1;
+                    score = document.getElementById("score").innerText;
+                    score =parseInt(score);
+                });
+            });
+        </script>
+</body>
+
+</html>
