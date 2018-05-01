@@ -10,7 +10,7 @@
 }
 
 
-#kiki{
+img {
     position: center;
     box-shadow: #D332 0 0 0 5;
     align-content: center;
@@ -18,3 +18,10 @@
     border-radius: 10px;
 
 }
+
+#newDiv{
+    display: inline;
+    vertical-align: top;
+    background-color: green;
+}
+

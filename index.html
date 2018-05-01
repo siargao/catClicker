@@ -13,14 +13,48 @@
 <body>
     <div id='container'>
         <p id='score'> 1 </p>
-        <img id='kiki' src="kiki.png" alt="sneeky" height="600" width="800">
+        <div id='catNames'></div>
+        <img id='kiki' src="kiki.png" alt="sneeky" height="300" width="400">
+        <img id='sleeping' src="sleepingKiki.png" alt="asleep" height="300" width="400">
     </div>
     <script>
+
+        var newDiv = document.createElement('div');
+        newDiv.setAttribute("id","newDiv");
+        var leftCatName = 'Miming';
+        var rightCatName = 'Kiki';
+ 
+        //or to any other element you want
+        var existingDiv = document.getElementById('catNames') // getElementById is just one of the various ways to access DOM elements.
+        
+        existingDiv.appendChild(newDiv);
+
+        var leftCat = document.createElement('h1');
+        
+        var rightCat = document.createElement('h1');
+
+        newDiv.appendChild(rightCat);
+        rightCat.setAttribute("id","rightName");
+        document.getElementById("rightName").innerHTML = rightCatName;
+
+        newDiv.appendChild(leftCat);
+        leftCat.setAttribute("id", "leftName");
+        document.getElementById("leftName").innerHTML = leftCatName;
+
+
+
             var score = document.getElementById("score").innerText;
             score = parseInt(score);
             //primitive way of incrementing the p
             var increaseScore = document.addEventListener('DOMContentLoaded', function () {
-                document.getElementById("kiki").addEventListener('click', function () {
+
+                document.getElementsByTagName("img")[0].addEventListener('click', function () {
+                    document.getElementById("score").innerText = score + 1;
+                    score = document.getElementById("score").innerText;
+                    score =parseInt(score);
+                });
+
+                document.getElementsByTagName("img")[1].addEventListener('click', function () {
                     document.getElementById("score").innerText = score + 1;
                     score = document.getElementById("score").innerText;
                     score =parseInt(score);
