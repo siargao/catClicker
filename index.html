@@ -7,60 +7,102 @@
     <title>Cat Clicker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-   
+
 </head>
 
 <body>
     <div id='container'>
-        <p id='score'> 1 </p>
-        <div id='catNames'></div>
-        <img id='kiki' src="kiki.png" alt="sneeky" height="300" width="400">
-        <img id='sleeping' src="sleepingKiki.png" alt="asleep" height="300" width="400">
+        <p id='score'> 0 </p>
+        <div id='catList'>
+
+        </div>
+
+        <div id='catDiv'>
+
+        </div>
+
     </div>
     <script>
+        // <img id='kiki' src="kiki.png" alt="sneeky" height="300" width="400">
+        //<img id='sleeping' src="sleepingKiki.png" alt="asleep" height="300" width="400">
 
-        var newDiv = document.createElement('div');
-        newDiv.setAttribute("id","newDiv");
-        var leftCatName = 'Miming';
-        var rightCatName = 'Kiki';
- 
-        //or to any other element you want
-        var existingDiv = document.getElementById('catNames') // getElementById is just one of the various ways to access DOM elements.
-        
-        existingDiv.appendChild(newDiv);
+        var score = document.getElementById("score").innerText;
+        score = parseInt(score);
 
-        var leftCat = document.createElement('h1');
-        
-        var rightCat = document.createElement('h1');
+        const catNames = ['inBasket', 'kiki', 'kittenGrey', 'lookUp', 'sleepingCat', 'sleepingKiki']
 
-        newDiv.appendChild(rightCat);
-        rightCat.setAttribute("id","rightName");
-        document.getElementById("rightName").innerHTML = rightCatName;
+        const myUl = document.createElement('ul')
 
-        newDiv.appendChild(leftCat);
-        leftCat.setAttribute("id", "leftName");
-        document.getElementById("leftName").innerHTML = leftCatName;
+        // Let's loop over the numbers in our array
+        const createList = document.addEventListener('DOMContentLoaded', function () {
 
+            for (let i = 0; i < catNames.length; i++) {
 
+                // This is the name of the cat list we are on
+                const name = catNames[i]
+                const myList = []
+                
+                // We're creating a DOM element for each li
+                myList[i] = document.createElement('li');
+                myList[i].textContent = name;
 
-            var score = document.getElementById("score").innerText;
-            score = parseInt(score);
-            //primitive way of incrementing the p
-            var increaseScore = document.addEventListener('DOMContentLoaded', function () {
-
-                document.getElementsByTagName("img")[0].addEventListener('click', function () {
+                // ... and when we click, alert the value of `num`
+                myList[i].addEventListener('click', function () {
                     document.getElementById("score").innerText = score + 1;
                     score = document.getElementById("score").innerText;
-                    score =parseInt(score);
+                    score = parseInt(score);
                 });
+                myUl.appendChild(myList[i]);
+            };
+            catDiv.appendChild(myUl);
 
-                document.getElementsByTagName("img")[1].addEventListener('click', function () {
-                    document.getElementById("score").innerText = score + 1;
-                    score = document.getElementById("score").innerText;
-                    score =parseInt(score);
-                });
-            });
-        </script>
+        });
+        // var newDiv = document.createElement('div');
+        // newDiv.setAttribute("id", "newDiv");
+        // var leftCatName = 'Miming';
+        // var rightCatName = 'Kiki';
+
+        // //or to any other element you want
+        // var existingDiv = document.getElementById('catNames') // getElementById is just one of the various ways to access DOM elements.
+
+        // existingDiv.appendChild(newDiv);
+
+        // var leftCat = document.createElement('h1');
+
+        // var rightCat = document.createElement('h1');
+
+        // newDiv.appendChild(rightCat);
+        // rightCat.setAttribute("id", "rightName");
+        // document.getElementById("rightName").innerHTML = rightCatName;
+
+        // newDiv.appendChild(leftCat);
+        // leftCat.setAttribute("id", "leftName");
+        // document.getElementById("leftName").innerHTML = leftCatName;
+
+
+
+        // var score = document.getElementById("score").innerText;
+        // score = parseInt(score);
+        // //primitive way of incrementing the p
+        // var increaseScore = document.addEventListener('DOMContentLoaded', function () {
+
+        //     document.getElementsByTagName("img")[0].addEventListener('click', function () {
+        //         document.getElementById("score").innerText = score + 1;
+        //         score = document.getElementById("score").innerText;
+        //         score = parseInt(score);
+        //     });
+
+        //     document.getElementsByTagName("img")[1].addEventListener('click', function () {
+        //         document.getElementById("score").innerText = score + 1;
+        //         score = document.getElementById("score").innerText;
+        //         score = parseInt(score);
+        //     });
+        // });
+
+
+
+
+    </script>
 </body>
 
 </html>

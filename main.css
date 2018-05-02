@@ -23,5 +23,19 @@ img {
     display: inline;
     vertical-align: top;
     background-color: green;
+    position: relative;
+
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    background-color: green;
+    padding: 10px;
+    margin: 5px;
+    width: 250px;
+
 }
 
