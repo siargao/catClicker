@@ -13,12 +13,12 @@
 <body>
     <div id='container'>
         <p id='score'> 0 </p>
-        <div id='catList'>
 
+        <div id='catList'>
         </div>
 
         <div id='catDiv'>
-
+            <img>
         </div>
 
     </div>
@@ -29,34 +29,58 @@
         var score = document.getElementById("score").innerText;
         score = parseInt(score);
 
-        const catNames = ['inBasket', 'kiki', 'kittenGrey', 'lookUp', 'sleepingCat', 'sleepingKiki']
+        const catNames = ['inBasket', 'kiki', 'kittenGrey', 'lookUp', 'sleepingKiki']
 
         const myUl = document.createElement('ul')
 
-        // Let's loop over the numbers in our array
+        // Let's loop over the array catNames to create our list of cats
         const createList = document.addEventListener('DOMContentLoaded', function () {
+
+            catDiv.innerHTML = '';
 
             for (let i = 0; i < catNames.length; i++) {
 
                 // This is the name of the cat list we are on
                 const name = catNames[i]
                 const myList = []
-                
+
                 // We're creating a DOM element for each li
                 myList[i] = document.createElement('li');
                 myList[i].textContent = name;
 
                 // ... and when we click, alert the value of `num`
                 myList[i].addEventListener('click', function () {
-                    document.getElementById("score").innerText = score + 1;
-                    score = document.getElementById("score").innerText;
-                    score = parseInt(score);
+                    catDiv.innerHTML = '';
+                    const catImage = document.createElement('img')
+                    const filename = name + '.png'
+                    catImage.setAttribute('src', filename)
+                    catImage.setAttribute('height', '400px')
+                    catImage.setAttribute('width', '600px')
+                    catDiv.appendChild(catImage)
+
+                    var increaseScore = document.getElementsByTagName("img")[0].addEventListener('click', function () {
+                        document.getElementById("score").innerText = score + 1;
+                        score = document.getElementById("score").innerText;
+                        score = parseInt(score);
+                    });
+
                 });
                 myUl.appendChild(myList[i]);
             };
-            catDiv.appendChild(myUl);
+
+            catList.appendChild(myUl);
+
+
 
         });
+
+        //This will create our img DOM element by appending to the catDiv based on the list item that were clicked
+
+
+
+
+
+
         // var newDiv = document.createElement('div');
         // newDiv.setAttribute("id", "newDiv");
         // var leftCatName = 'Miming';
@@ -83,14 +107,15 @@
 
         // var score = document.getElementById("score").innerText;
         // score = parseInt(score);
-        // //primitive way of incrementing the p
-        // var increaseScore = document.addEventListener('DOMContentLoaded', function () {
+        //primitive way of incrementing the p
+        var increaseScore = document.addEventListener('DOMContentLoaded', function () {
 
-        //     document.getElementsByTagName("img")[0].addEventListener('click', function () {
-        //         document.getElementById("score").innerText = score + 1;
-        //         score = document.getElementById("score").innerText;
-        //         score = parseInt(score);
-        //     });
+            document.getElementsByTagName("img")[0].addEventListener('click', function () {
+                document.getElementById("score").innerText = score + 1;
+                score = document.getElementById("score").innerText;
+                score = parseInt(score);
+            });
+        });
 
         //     document.getElementsByTagName("img")[1].addEventListener('click', function () {
         //         document.getElementById("score").innerText = score + 1;
