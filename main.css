@@ -1,5 +1,5 @@
 #container{
-    background-color: pink;
+    background-color: lightslategrey;
     flex: auto;
 }
 
@@ -22,7 +22,7 @@ img {
 #newDiv{
     display: inline;
     vertical-align: top;
-    background-color: green;
+    background-color: lightcoral;
     position: relative;
 
 }
@@ -32,7 +32,7 @@ ul{
 }
 
 li{
-    background-color: green;
+    background-color: lightseagreen;
     padding: 10px;
     margin: 5px;
     width: 250px;

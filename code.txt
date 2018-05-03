@@ -1,3 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cat Clicker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  type="text/css" media="screen" href="main.css" />
+
+</head>
+
+<body></body>
+    <div id='container'>
+        <p id='score'> 0 </p>
+
+        <div id='catList'>
+        </div>
+
+        <div id='catDiv'>
+            <div id='catName'></div>
+            <div id='score'></div>
+            <img id='catImage'>
+        </div>
+
+    </div>
+    <script src="/main.js"></script>
+</body>
+
+</html>
+
+
+*****************************************************
 
 var score = document.getElementById("score").innerText;
 score = parseInt(score);
@@ -53,4 +86,48 @@ var increaseScore = document.addEventListener('DOMContentLoaded', function () {
         score = parseInt(score);
     });
 });
+
+
+*****************************************************
+
+#container{
+    background-color: lightslategrey;
+    flex: auto;
+}
+
+#container p{
+    height: 24px;
+    text-align: center;
+    font-size: 24px;
+}
+
+
+img {
+    position: center;
+    box-shadow: #D332 0 0 0 5;
+    align-content: center;
+    margin: 10px;
+    border-radius: 10px;
+
+}
+
+#newDiv{
+    display: inline;
+    vertical-align: top;
+    background-color: lightcoral;
+    position: relative;
+
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    background-color: lightseagreen;
+    padding: 10px;
+    margin: 5px;
+    width: 250px;
+
+}
 
