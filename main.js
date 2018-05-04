@@ -1,56 +1,130 @@
+//this will be the dtat of our cat
+const model = {
+    currentCat: null,
+    cats:[
+        {
+            name: 'inBasket',
+            filename:'inBasket.png' ,
+            clickCount: 0
+        },
 
-var score = document.getElementById("score").innerText;
-score = parseInt(score);
+        {
+            name: 'kiki',
+            filename:'kiki.png' ,
+            clickCount: 0
+        },
+        {
+            name: 'kittenGrey',
+            filename:'kittenGrey.png' ,
+            clickCount: 0
+        },
+        {
+            name: 'lookUp',
+            filename:'lookUp.png' ,
+            clickCount: 0
+        },
+        {
+            name: 'sleepingKiki',
+            filename:'sleepingKiki.png' ,
+            clickCount: 0
+        },
+    ],
+};
 
-const catNames = ['inBasket', 'kiki', 'kittenGrey', 'lookUp', 'sleepingKiki']
 
-const myUl = document.createElement('ul')
+//this will connect our View to the Model and vice versa
+const octopus = {
 
-// Let's loop over the array catNames to create our list of cats
-const createList = document.addEventListener('DOMContentLoaded', function () {
+    init: function(){
+        //initialise the current cat to our first cat our cats array
+        model.currentCat = model.cats[0];
 
-    catDiv.innerHTML = '';
+        //initialise our listview
+        catListView.init();
 
-    for (let i = 0; i < catNames.length; i++) {
+        //initialise our catView
+        catView.init();
 
-        // This is the name of the cat list we are on
-        const name = catNames[i]
-        const myList = []
+    },
 
-        // We're creating a DOM element for each li
-        myList[i] = document.createElement('li');
-        myList[i].textContent = name;
+    //return our cats array
+    getCats: function(){
+        return (model.cats)
+    },
 
-        // ... and when we click, alert the value of `num`
-        myList[i].addEventListener('click', function () {
-            catDiv.innerHTML = '';
-            const catImage = document.createElement('img')
-            const filename = name + '.png'
-            catImage.setAttribute('src', filename)
-            catImage.setAttribute('height', '400px')
-            catImage.setAttribute('width', '600px')
-            catDiv.appendChild(catImage)
+    getCurrentCat: function(){
+        return model.currentCat
+    },
 
-            var increaseScore = document.getElementsByTagName("img")[0].addEventListener('click', function () {
-                document.getElementById("score").innerText = score + 1;
-                score = document.getElementById("score").innerText;
-                score = parseInt(score);
-            });
+    setCurrentCat: function(cat){
+        model.currentCat = cat;
+    },
 
+    increaseClickCount: function(){
+        model.currentCat.clickCount++;
+        catView.render();
+    }
+    
+}
+
+
+//this will manipulate our DOM in the index.html file to create our <li> items
+const catListView = {
+    
+    init:function(){
+        this.render();
+    },
+
+    render:function(){
+
+        const myUl = document.getElementById('myUlist')
+        const cats = octopus.getCats();
+
+        for(let i = 0; i< cats.length; i++){
+            //create our <li> item
+            const cat = cats[i]
+            const list = document.createElement('li')
+            list.textContent = cats[i].name
+            
+            list.addEventListener('click',(function(cat){
+                return function(){
+                     //set the current cat  on click 
+                    octopus.setCurrentCat(cat);
+                    //render the current cat on click
+                    catView.render();
+                };
+            })(cat));
+
+            myUl.appendChild(list)
+        }
+    },
+
+};
+
+
+//this will manipulate our <img> element in our index.html file
+const catView = {
+
+    init: function(){
+        this.cat = document.getElementById('cat')
+        this.catName = document.getElementById('catName')
+        this.clickCount = document.getElementById('clickCount')
+        this.catImage = document.getElementById('catImage')
+        
+        this.catImage.addEventListener('click',function(){
+            octopus.increaseClickCount();
         });
-        myUl.appendChild(myList[i]);
-    };
 
-    catList.appendChild(myUl);
+        this.render();
+    },
 
-});
+    render: function(){
+        const currentCat = octopus.getCurrentCat()
+        this.catName.textContent = currentCat.name
+        this.catImage.src = currentCat.filename
+        this.clickCount.textContent = currentCat.clickCount
+    },
 
-var increaseScore = document.addEventListener('DOMContentLoaded', function () {
+};
 
-    document.getElementsByTagName("img")[0].addEventListener('click', function () {
-        document.getElementById("score").innerText = score + 1;
-        score = document.getElementById("score").innerText;
-        score = parseInt(score);
-    });
-});
-
+octopus.init();
