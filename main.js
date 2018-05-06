@@ -1,31 +1,31 @@
-//this will be the dtat of our cat
+//this will be the data of our cat
 const model = {
     currentCat: null,
     cats:[
         {
-            name: 'inBasket',
-            filename:'inBasket.png' ,
+            name: 'Clothes Line',
+            url:'https://farm1.staticflickr.com/155/354864230_a8fe1fe864_z.jpg?zz=1',
             clickCount: 0
         },
 
         {
-            name: 'kiki',
-            filename:'kiki.png' ,
+            name: 'Snow Hunter',
+            url:'https://c1.staticflickr.com/6/5204/5271395372_bb7e60dcaf_b.jpg' ,
             clickCount: 0
         },
         {
-            name: 'kittenGrey',
-            filename:'kittenGrey.png' ,
+            name: 'Blue eyes kitty',
+            url:'https://c1.staticflickr.com/7/6059/6262552465_e53bccbd52_b.jpg' ,
             clickCount: 0
         },
         {
-            name: 'lookUp',
-            filename:'lookUp.png' ,
+            name: 'Couching',
+            url:'https://pbs.twimg.com/media/DaiHivnX0AALglq.jpg' ,
             clickCount: 0
         },
         {
-            name: 'sleepingKiki',
-            filename:'sleepingKiki.png' ,
+            name: 'Bright eyes',
+            url:'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg' ,
             clickCount: 0
         },
     ],
@@ -86,6 +86,7 @@ const catListView = {
             const list = document.createElement('li')
             list.textContent = cats[i].name
             
+            //this is an IIFE 
             list.addEventListener('click',(function(cat){
                 return function(){
                      //set the current cat  on click 
@@ -121,7 +122,7 @@ const catView = {
     render: function(){
         const currentCat = octopus.getCurrentCat()
         this.catName.textContent = currentCat.name
-        this.catImage.src = currentCat.filename
+        this.catImage.src = currentCat.url
         this.clickCount.textContent = currentCat.clickCount
     },
 
