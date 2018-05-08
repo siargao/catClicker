@@ -45,6 +45,12 @@ const octopus = {
         //initialise our catView
         catView.init();
 
+        adminView.hide();
+
+        name.value = model.cats[0].name
+        imageUrl.value = model.cats[0].url
+        noOfClicks.value = model.cats[0].clickCount
+
     },
 
     //return our cats array
@@ -128,4 +134,35 @@ const catView = {
 
 };
 
+const admin = document.getElementById('admin')
+const name = document.getElementById('name')
+const imageUrl = document.getElementById('imageUrl')
+const noOfClicks = document.getElementById('noOfClicks')
+const showAdmin = document.getElementById('showAdmin')
+const cancel = document.getElementById('cancel')
+
+
+const adminView = {
+    hide: function(){
+        admin.style.display = 'none'
+    },
+
+    show: function(){
+        admin.style.display = 'block'
+    }
+
+};
+
+showAdmin.addEventListener('click',function(){
+         //call the function which shows our labels and inputbox
+        adminView.show();
+});
+
+cancel.addEventListener('click',function(){
+   adminView.hide();
+});
+
+
 octopus.init();
+
+

@@ -6,43 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Cat Clicker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"  type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
 </head>
 
 <body></body>
-    <div id='container'>
-        <div id='catList'>
-            <ul id='myUlist'></ul>
-        </div>
+<div id='container'>
 
-        <form id='admin'>
-            <button type="submit">Admin</button>
-            <br>
-            <span >
-                <label for='name'>Name</label> 
-                <input id='name' type="text" placeholder="name"></input>
-            </span>
-            
-            <span >
-                <label for='imageUrl'>ImgUrl</label> 
-                <input id='imageUrl' type="text" placeholder="image url"></input>
-            </span>                       
-            
-            <span >
-                <label for='noOfClicks'>No of Clicks</label> 
-                <input id='noOfClicks' type="text" placeholder="no of clicks"></input>
-            </span>
-        </form>
+    <div id='catList'>
+        <ul id='myUlist'></ul>
+    </div>
 
-        <div id='cat'>
-            <div id='catName'></div>
-            <div id='clickCount'></div>
-            <img id='catImage' src=''>
-        </div>
+    <button id='showAdmin'>Admin</button>
+
+    <div id='admin'>
+        <span>
+            <label for='name'>Name</label>
+            <input id='name' type="text" placeholder="name"></input>
+        </span>
+
+        <span>
+            <label for='imageUrl'>ImgUrl</label>
+            <input id='imageUrl' type="text" placeholder="image url"></input>
+        </span>
+
+        <span>
+            <label for='noOfClicks'>No of Clicks</label>
+            <input id='noOfClicks' type="text" placeholder="no of clicks"></input>
+        </span>
+        
+        <span>
+            <button id='cancel'>Cancel</button>
+            <button id='save'>Save</button>
+        </span>
 
     </div>
-    <script src="/main.js"></script>
+
+
+    <div id='cat'>
+        <div id='catName'></div>
+        <div id='clickCount'></div>
+        <img id='catImage' src=''>
+    </div>
+
+    
+
+</div>
+<script src="/main.js"></script>
 </body>
 
 </html>
